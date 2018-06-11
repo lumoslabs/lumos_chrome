@@ -1,30 +1,41 @@
 {
-   "background": {
-      "scripts": [ "js/moment.min.js", "js/app.js" ]
-   },
-   "browser_action": {
-      "default_icon": {
-         "19": "brain_19x19.png",
-         "38": "brain_76x76.png"
-      },
-      "default_popup": "html/popup.html"
-   },
-   "content_security_policy": "script-src 'self' https://www.lumosity.com; object-src 'self'",
-   "chrome_url_overrides": {
-      "newtab": "html/game_play.html"
-   },
-   "description": "Take a quick Lumosity break and exercise your brain!",
-   "icons": {
-      "128": "icon128.png",
-      "16": "icon16.png",
-      "48": "icon48.png"
-   },
-   "manifest_version": 2,
-   "name": "Lumosity Break",
-   "permissions": [ "tabs", "webRequestBlocking", "webRequest", "https://*.lumosity.com/*"],
-   "sandbox": {
-      "pages": [ "html/game.html", "game.html" ]
-   },
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.6.4"
+  "background": {
+    "scripts": [
+      "js/moment.min.js",
+      "js/app.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "brain_19x19.png",
+      "38": "brain_76x76.png"
+    },
+    "default_popup": "html/popup.html"
+  },
+  "content_security_policy": "default-src 'self' *.lumosity.com",
+  "chrome_url_overrides": {
+    "newtab": "html/game_play.html"
+  },
+  "description": "Take a quick Lumosity break and exercise your brain!",
+  "icons": {
+    "128": "icon128.png",
+    "16": "icon16.png",
+    "48": "icon48.png"
+  },
+  "manifest_version": 2,
+  "name": "Lumosity Break",
+  "permissions": [
+    "tabs",
+    "webRequestBlocking",
+    "webRequest",
+    "https://*.lumosity.com/*"
+  ],
+  "sandbox": {
+    "pages": [
+      "html/game.html",
+      "game.html"
+    ]
+  },
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "version": "1.6.4"
 }
