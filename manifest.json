@@ -12,7 +12,7 @@
     },
     "default_popup": "html/popup.html"
   },
-  "content_security_policy": "default-src 'self' *.lumosity.com",
+  "content_security_policy": "default-src 'self' https://www.lumosity.com/ https://assets.lumosity.com; script-src https://www.lumosity.com/ https://assets.lumosity.com; frame-src https://www.lumosity.com/ https://assets.lumosity.com; style-src 'unsafe-inline'",
   "chrome_url_overrides": {
     "newtab": "html/game_play.html"
   },
@@ -37,5 +37,5 @@
     ]
   },
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "1.7.0"
+  "version": "1.7.1"
 }
