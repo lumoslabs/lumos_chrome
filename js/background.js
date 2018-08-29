@@ -1,21 +1,18 @@
 // hijack web requests made by chrome to remove security headers
-chrome.webRequest.onHeadersReceived.addListener(
-  function (info) {
-    var headers = info.responseHeaders;
-    for (var i = headers.length - 1; i >= 0; --i) {
-      var header = headers[i].name.toLowerCase();
-      if (header == 'x-frame-options' || header == 'frame-options' || header == 'content-security-policy') {
-        headers.splice(i, 1); // Remove header
-      }
+chrome.webRequest.onHeadersReceived.addListener(info => {
+  const headers = info.responseHeaders; // original headers
+  for (let i = headers.length - 1; i >= 0; --i) {
+    let header = headers[i].name.toLowerCase();
+    if (header === "x-frame-options" || header === "frame-options" || header === "content-security-policy") {
+      headers.splice(i, 1); // Remove the header
     }
-    return { responseHeaders: headers };
-  },
-  {
-    urls: ['https://*.lumosity.com/*'],
-    types: ['sub_frame']
-  },
-  ['blocking', 'responseHeaders']
-);
+  }
+  // return modified headers
+  return { responseHeaders: headers };
+}, {
+    urls: ["<all_urls>"], // match all pages
+    types: ["sub_frame"] // for framing only
+  }, ["blocking", "responseHeaders"]);
 
 games = [
   'brain-shift-2',
